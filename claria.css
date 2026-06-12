@@ -1,0 +1,585 @@
+/* ============================================================
+   ClarIA — Assistente Comercial Cardápio Web
+   Estilos da extensão Chrome
+   ============================================================ */
+
+#claria-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #7C3AED, #6D28D9);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.45);
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 0;
+}
+
+#claria-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.6);
+}
+
+#claria-toggle svg {
+  width: 26px;
+  height: 26px;
+  color: white;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+#claria-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  background: #10B981;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: none;
+}
+
+#claria-badge.visible {
+  display: block;
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+#claria-sidebar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 380px;
+  height: 600px;
+  background: #ffffff;
+  border-radius: 16px 0 0 0;
+  box-shadow: -4px 0 32px rgba(0, 0, 0, 0.14), 0 -4px 32px rgba(0, 0, 0, 0.08);
+  z-index: 2147483646;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%) translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+}
+
+#claria-sidebar.open {
+  transform: translateX(0) translateY(0);
+}
+
+/* HEADER */
+#claria-header {
+  background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  flex-shrink: 0;
+  position: relative;
+}
+
+#claria-avatar {
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+#claria-header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+#claria-name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+}
+
+#claria-status {
+  font-size: 11px;
+  opacity: 0.75;
+  margin-top: 1px;
+}
+
+#claria-header-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.claria-header-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.claria-header-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* ============================================================
+   VIEW: CHAT
+   ============================================================ */
+
+#claria-chat-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#claria-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 14px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #F5F3FF;
+}
+
+#claria-messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+#claria-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#claria-messages::-webkit-scrollbar-thumb {
+  background: #DDD6FE;
+  border-radius: 4px;
+}
+
+.claria-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 88%;
+}
+
+.claria-msg.user {
+  align-self: flex-end;
+}
+
+.claria-msg.bot {
+  align-self: flex-start;
+}
+
+.claria-msg-bubble {
+  padding: 10px 13px;
+  border-radius: 14px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+.claria-msg.user .claria-msg-bubble {
+  background: #7C3AED;
+  color: white;
+  border-radius: 14px 14px 4px 14px;
+}
+
+.claria-msg.bot .claria-msg-bubble {
+  background: white;
+  color: #1F2937;
+  border-radius: 14px 14px 14px 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.claria-msg-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+  padding: 0 2px;
+}
+
+.claria-msg.user .claria-msg-meta {
+  justify-content: flex-end;
+}
+
+.claria-type-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 10px;
+  letter-spacing: 0.2px;
+}
+
+.claria-type-tag.A { background: #DBEAFE; color: #1D4ED8; }
+.claria-type-tag.B { background: #FCE7F3; color: #BE185D; }
+.claria-type-tag.C { background: #D1FAE5; color: #065F46; }
+
+.claria-copy-btn {
+  background: none;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 11px;
+  color: #6B7280;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.claria-copy-btn:hover {
+  background: #F3F4F6;
+  border-color: #D1D5DB;
+  color: #374151;
+}
+
+.claria-copy-btn.copied {
+  color: #059669;
+  border-color: #A7F3D0;
+  background: #ECFDF5;
+}
+
+/* TYPING INDICATOR */
+.claria-typing-wrap {
+  align-self: flex-start;
+}
+
+.claria-typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 14px;
+  background: white;
+  border-radius: 14px 14px 14px 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  width: fit-content;
+}
+
+.claria-typing span {
+  width: 7px;
+  height: 7px;
+  background: #C4B5FD;
+  border-radius: 50%;
+  animation: claria-pulse 1.3s infinite ease-in-out;
+}
+
+.claria-typing span:nth-child(2) { animation-delay: 0.2s; }
+.claria-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes claria-pulse {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+  40% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* SUGGESTIONS */
+#claria-suggestions {
+  padding: 8px 12px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  background: white;
+  border-top: 1px solid #F3F0FF;
+  scrollbar-width: none;
+}
+
+#claria-suggestions::-webkit-scrollbar { display: none; }
+
+.claria-suggestion {
+  background: #F3F0FF;
+  color: #6D28D9;
+  border: 1px solid #DDD6FE;
+  border-radius: 18px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+  font-family: inherit;
+}
+
+.claria-suggestion:hover {
+  background: #EDE9FE;
+  border-color: #C4B5FD;
+}
+
+/* INPUT AREA */
+#claria-input-area {
+  padding: 10px 12px;
+  background: white;
+  border-top: 1px solid #F3F4F6;
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+#claria-input {
+  flex: 1;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 9px 13px;
+  font-size: 13.5px;
+  font-family: inherit;
+  outline: none;
+  resize: none;
+  max-height: 96px;
+  min-height: 40px;
+  line-height: 1.45;
+  color: #1F2937;
+  transition: border-color 0.2s;
+  overflow-y: auto;
+}
+
+#claria-input:focus {
+  border-color: #7C3AED;
+}
+
+#claria-input::placeholder {
+  color: #9CA3AF;
+  font-size: 13px;
+}
+
+#claria-send {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #7C3AED, #6D28D9);
+  border: none;
+  border-radius: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+#claria-send:hover { opacity: 0.9; }
+#claria-send:active { transform: scale(0.93); }
+
+#claria-send svg {
+  width: 17px;
+  height: 17px;
+  color: white;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+/* ============================================================
+   VIEW: SETTINGS
+   ============================================================ */
+
+#claria-settings-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  display: none;
+}
+
+#claria-settings-view.active {
+  display: flex;
+}
+
+#claria-chat-view.hidden {
+  display: none;
+}
+
+.claria-settings-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background: #F5F3FF;
+}
+
+.claria-settings-section {
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.claria-settings-section h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1F2937;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.claria-field {
+  margin-bottom: 10px;
+}
+
+.claria-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B7280;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.claria-field input,
+.claria-field textarea,
+.claria-field select {
+  width: 100%;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 8px 11px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  color: #1F2937;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.claria-field textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+.claria-field input:focus,
+.claria-field textarea:focus,
+.claria-field select:focus {
+  border-color: #7C3AED;
+}
+
+.claria-btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, #7C3AED, #6D28D9);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.15s;
+}
+
+.claria-btn-primary:hover { opacity: 0.9; }
+
+.claria-custom-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.claria-custom-item {
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.claria-custom-item-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.claria-custom-item-q {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.claria-custom-item-a {
+  font-size: 11.5px;
+  color: #9CA3AF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.claria-delete-btn {
+  background: none;
+  border: none;
+  color: #EF4444;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 2px 4px;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+
+.claria-delete-btn:hover { opacity: 1; }
+
+.claria-empty-state {
+  text-align: center;
+  color: #9CA3AF;
+  font-size: 13px;
+  padding: 16px;
+}
+
+/* ============================================================
+   TOAST NOTIFICATION
+   ============================================================ */
+
+#claria-toast {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  background: #1F2937;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  z-index: 2147483648;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+}
+
+#claria-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
