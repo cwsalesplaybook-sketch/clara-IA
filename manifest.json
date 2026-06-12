@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "ClarIA — Assistente Comercial CW",
+  "name": "Clara IA — Assistente Comercial CW",
   "description": "Assistente de vendas da Cardápio Web",
   "version": "2.0.0",
   "permissions": ["storage", "sidePanel"],
@@ -8,7 +8,7 @@
     "default_path": "sidepanel.html"
   },
   "action": {
-    "default_title": "Abrir ClarIA",
+    "default_title": "Abrir Clara IA",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
