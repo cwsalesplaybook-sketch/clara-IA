@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "ClarIA — Assistente Comercial CW",
   "description": "Assistente de vendas da Cardápio Web. Ativa apenas no Sales Playbook.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "permissions": ["storage"],
   "content_scripts": [
     {
@@ -10,6 +10,12 @@
       "js": ["knowledge_base.js", "claria.js"],
       "css": ["claria.css"],
       "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/icon16.png", "icons/icon48.png", "icons/icon128.png"],
+      "matches": ["https://cw-sales-playbook-main.vercel.app/*"]
     }
   ],
   "icons": {

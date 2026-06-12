@@ -21,9 +21,7 @@
   toggle.id = 'claria-toggle';
   toggle.title = 'ClarIA — Assistente Comercial';
   toggle.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/>
-    </svg>
+    <img src="${chrome.runtime.getURL('icons/icon128.png')}" alt="ClarIA" style="width:52px;height:52px;border-radius:50%;object-fit:cover;display:block;">
     <div id="claria-badge"></div>
   `;
   root.appendChild(toggle);
@@ -38,7 +36,7 @@
   sidebar.id = 'claria-sidebar';
   sidebar.innerHTML = `
     <div id="claria-header">
-      <div id="claria-avatar">✨</div>
+      <div id="claria-avatar"><img src="${chrome.runtime.getURL('icons/icon48.png')}" alt="ClarIA" style="width:38px;height:38px;border-radius:50%;object-fit:cover;display:block;"></div>
       <div id="claria-header-info">
         <div id="claria-name">ClarIA</div>
         <div id="claria-status">Assistente Comercial CW</div>
