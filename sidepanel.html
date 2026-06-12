@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClarIA</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #F5F3FF;
+  overflow: hidden;
+}
+
+/* HEADER */
+#header {
+  background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  flex-shrink: 0;
+}
+
+#avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.5);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+}
+#avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+#header-info { flex: 1; min-width: 0; }
+#header-name { font-size: 15px; font-weight: 700; }
+#header-status { font-size: 11px; opacity: 0.75; margin-top: 1px; }
+
+#settings-btn {
+  background: rgba(255,255,255,0.15);
+  border: none; color: white;
+  width: 30px; height: 30px;
+  border-radius: 8px; cursor: pointer;
+  font-size: 15px; flex-shrink: 0;
+  transition: background 0.15s;
+}
+#settings-btn:hover { background: rgba(255,255,255,0.28); }
+
+/* VIEWS */
+#chat-view { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+#settings-view { flex: 1; display: none; flex-direction: column; overflow: hidden; }
+#settings-view.active { display: flex; }
+#chat-view.hidden { display: none; }
+
+/* MESSAGES */
+#messages {
+  flex: 1; overflow-y: auto;
+  padding: 12px 12px 8px;
+  display: flex; flex-direction: column; gap: 9px;
+}
+#messages::-webkit-scrollbar { width: 3px; }
+#messages::-webkit-scrollbar-thumb { background: #DDD6FE; border-radius: 3px; }
+
+.msg { display: flex; flex-direction: column; max-width: 90%; }
+.msg.user { align-self: flex-end; }
+.msg.bot  { align-self: flex-start; }
+
+.msg-bubble {
+  padding: 9px 12px;
+  border-radius: 13px;
+  font-size: 13px; line-height: 1.55;
+  white-space: pre-line; word-break: break-word;
+}
+.msg.user .msg-bubble {
+  background: #7C3AED; color: white;
+  border-radius: 13px 13px 3px 13px;
+}
+.msg.bot .msg-bubble {
+  background: white; color: #1F2937;
+  border-radius: 13px 13px 13px 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.msg-meta { display: flex; align-items: center; gap: 6px; margin-top: 4px; padding: 0 2px; }
+
+.type-tag { font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 8px; }
+.type-tag.A { background: #DBEAFE; color: #1D4ED8; }
+.type-tag.B { background: #FCE7F3; color: #BE185D; }
+.type-tag.C { background: #D1FAE5; color: #065F46; }
+
+.copy-btn {
+  background: none; border: 1px solid #E5E7EB;
+  border-radius: 5px; padding: 2px 8px;
+  font-size: 10.5px; color: #6B7280; cursor: pointer;
+  font-family: inherit; transition: all 0.15s;
+}
+.copy-btn:hover { background: #F3F4F6; color: #374151; }
+
+/* TYPING */
+.typing-bubble {
+  display: flex; gap: 4px; padding: 10px 12px;
+  background: white; border-radius: 13px 13px 13px 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  width: fit-content;
+}
+.typing-bubble span {
+  width: 6px; height: 6px;
+  background: #C4B5FD; border-radius: 50%;
+  animation: pulse 1.3s infinite ease-in-out;
+}
+.typing-bubble span:nth-child(2) { animation-delay: 0.2s; }
+.typing-bubble span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes pulse {
+  0%,80%,100% { transform: translateY(0); opacity: 0.5; }
+  40%          { transform: translateY(-5px); opacity: 1; }
+}
+
+/* SUGGESTIONS */
+#suggestions {
+  padding: 6px 10px; background: white;
+  border-top: 1px solid #F3F0FF;
+  display: flex; gap: 5px;
+  overflow-x: auto; scrollbar-width: none;
+  flex-shrink: 0;
+}
+#suggestions::-webkit-scrollbar { display: none; }
+
+.chip {
+  background: #F3F0FF; color: #6D28D9;
+  border: 1px solid #DDD6FE; border-radius: 16px;
+  padding: 4px 10px; font-size: 11.5px; font-weight: 500;
+  cursor: pointer; white-space: nowrap; font-family: inherit;
+  transition: background 0.15s;
+}
+.chip:hover { background: #EDE9FE; }
+
+/* INPUT */
+#input-area {
+  padding: 8px 10px; background: white;
+  border-top: 1px solid #F3F4F6;
+  display: flex; gap: 6px; align-items: flex-end;
+  flex-shrink: 0;
+}
+#input {
+  flex: 1; border: 1.5px solid #E5E7EB;
+  border-radius: 10px; padding: 8px 11px;
+  font-size: 13px; font-family: inherit;
+  outline: none; resize: none;
+  max-height: 80px; min-height: 36px;
+  line-height: 1.4; color: #1F2937;
+  transition: border-color 0.2s;
+}
+#input:focus { border-color: #7C3AED; }
+#input::placeholder { color: #9CA3AF; }
+#send {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, #7C3AED, #6D28D9);
+  border: none; border-radius: 9px; cursor: pointer;
+  color: white; font-size: 16px; flex-shrink: 0;
+  transition: opacity 0.15s;
+}
+#send:hover { opacity: 0.9; }
+
+/* SETTINGS */
+.settings-body { flex: 1; overflow-y: auto; padding: 12px; }
+
+.settings-card {
+  background: white; border-radius: 10px;
+  padding: 12px; margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.settings-card h3 { font-size: 12.5px; font-weight: 700; color: #1F2937; margin-bottom: 10px; }
+
+.field { margin-bottom: 8px; }
+.field label {
+  display: block; font-size: 11px; font-weight: 600;
+  color: #6B7280; margin-bottom: 4px;
+  text-transform: uppercase; letter-spacing: 0.3px;
+}
+.field input, .field textarea, .field select {
+  width: 100%; border: 1.5px solid #E5E7EB;
+  border-radius: 7px; padding: 7px 10px;
+  font-size: 12.5px; font-family: inherit;
+  outline: none; box-sizing: border-box; color: #1F2937;
+}
+.field textarea { resize: vertical; min-height: 70px; line-height: 1.4; }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: #7C3AED; }
+
+.btn-save {
+  width: 100%; background: linear-gradient(135deg, #7C3AED, #6D28D9);
+  color: white; border: none; border-radius: 8px;
+  padding: 9px; font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: inherit; transition: opacity 0.15s;
+}
+.btn-save:hover { opacity: 0.9; }
+
+.custom-item {
+  background: #F9FAFB; border: 1px solid #E5E7EB;
+  border-radius: 7px; padding: 9px 10px;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 6px; margin-bottom: 6px;
+}
+.custom-q { font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 2px; }
+.custom-a { font-size: 11px; color: #9CA3AF; }
+.del-btn { background: none; border: none; color: #EF4444; cursor: pointer; font-size: 14px; opacity: 0.7; }
+.del-btn:hover { opacity: 1; }
+
+.empty-state { text-align: center; color: #9CA3AF; font-size: 12px; padding: 14px; }
+
+/* TOAST */
+#toast {
+  position: fixed; bottom: 64px; left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: #1F2937; color: white;
+  padding: 8px 14px; border-radius: 8px;
+  font-size: 12px; opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none; white-space: nowrap; z-index: 999;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <div id="avatar"><img src="icons/icon48.png" alt="ClarIA" onerror="this.parentElement.textContent='✨'"></div>
+  <div id="header-info">
+    <div id="header-name">ClarIA</div>
+    <div id="header-status">Assistente Comercial CW</div>
+  </div>
+  <button id="settings-btn" title="Treinar ClarIA">⚙️</button>
+</div>
+
+<!-- CHAT -->
+<div id="chat-view">
+  <div id="messages"></div>
+  <div id="suggestions">
+    <button class="chip" data-q="quais são os planos e preços?">💰 Planos</button>
+    <button class="chip" data-q="lead achou caro após apresentação">🏹 Caro</button>
+    <button class="chip" data-q="lead usa concorrente">🏆 Concorrentes</button>
+    <button class="chip" data-q="como funciona a garantia?">🛡 Garantia</button>
+    <button class="chip" data-q="temos totem de autoatendimento?">💻 Totem</button>
+    <button class="chip" data-q="lead pede pra mandar pelo WhatsApp">📩 WPP</button>
+  </div>
+  <div id="input-area">
+    <textarea id="input" placeholder="Dúvida, objeção ou situação..." rows="1"></textarea>
+    <button id="send">➤</button>
+  </div>
+</div>
+
+<!-- SETTINGS -->
+<div id="settings-view">
+  <div class="settings-body">
+    <div class="settings-card">
+      <h3>➕ Adicionar Conhecimento</h3>
+      <div class="field">
+        <label>Tipo</label>
+        <select id="new-type">
+          <option value="A">A — Produto / Preço / Processo</option>
+          <option value="B">B — Contorno de Objeção</option>
+          <option value="C">C — Direcionamento</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Pergunta / Situação</label>
+        <input id="new-q" type="text" placeholder="Ex: como funciona o totem?">
+      </div>
+      <div class="field">
+        <label>Resposta / Script</label>
+        <textarea id="new-a" placeholder="Escreva a resposta ou script completo..."></textarea>
+      </div>
+      <div class="field">
+        <label>Palavras-chave (separadas por vírgula)</label>
+        <input id="new-tags" type="text" placeholder="Ex: totem, autoatendimento">
+      </div>
+      <button class="btn-save" id="save-btn">Salvar Entrada</button>
+    </div>
+    <div class="settings-card">
+      <h3>📚 Entradas Personalizadas</h3>
+      <div id="custom-list"><div class="empty-state">Nenhuma entrada ainda.</div></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="knowledge_base.js"></script>
+<script>
+let customEntries = [];
+let inSettings = false;
+
+const messagesEl  = document.getElementById('messages');
+const inputEl     = document.getElementById('input');
+const statusEl    = document.getElementById('header-status');
+const toast       = document.getElementById('toast');
+const chatView    = document.getElementById('chat-view');
+const settingsView= document.getElementById('settings-view');
+const settingsBtn = document.getElementById('settings-btn');
+
+/* ---- storage ---- */
+function load(cb) {
+  chrome.storage.local.get(['claria_custom'], r => {
+    customEntries = (r && r.claria_custom) || [];
+    if (cb) cb();
+  });
+}
+function persist() { chrome.storage.local.set({ claria_custom: customEntries }); }
+
+/* ---- toast ---- */
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+/* ---- messages ---- */
+function scrollBottom() { messagesEl.scrollTop = messagesEl.scrollHeight; }
+
+function addMsg(text, sender, type) {
+  const wrap   = document.createElement('div');
+  wrap.className = 'msg ' + sender;
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.textContent = text;
+  wrap.appendChild(bubble);
+
+  if (sender === 'bot') {
+    const meta = document.createElement('div');
+    meta.className = 'msg-meta';
+    if (type) {
+      const labels = { A: 'Produto', B: 'Objeção', C: 'Direção' };
+      const tag = document.createElement('span');
+      tag.className = 'type-tag ' + type;
+      tag.textContent = labels[type] || type;
+      meta.appendChild(tag);
+    }
+    const copy = document.createElement('button');
+    copy.className = 'copy-btn';
+    copy.textContent = 'Copiar';
+    copy.onclick = () => {
+      navigator.clipboard.writeText(text).then(() => {
+        copy.textContent = 'Copiado!';
+        setTimeout(() => copy.textContent = 'Copiar', 2000);
+      }).catch(() => {});
+    };
+    meta.appendChild(copy);
+    wrap.appendChild(meta);
+  }
+  messagesEl.appendChild(wrap);
+  scrollBottom();
+}
+
+function showTyping() {
+  const d = document.createElement('div');
+  d.id = 'typing'; d.className = 'msg bot';
+  d.innerHTML = '<div class="typing-bubble"><span></span><span></span><span></span></div>';
+  messagesEl.appendChild(d);
+  scrollBottom();
+}
+function hideTyping() { const t = document.getElementById('typing'); if (t) t.remove(); }
+
+/* ---- search ---- */
+function answer(text) {
+  if (typeof CLARIA_KB === 'undefined') return { text: 'Base de conhecimento não carregada.', type: null };
+  const r = CLARIA_KB.search(text, customEntries);
+  if (!r) return { text: 'Não encontrei resposta específica. Tente reformular ou use os atalhos.\n\nDica: descreva a situação com "lead disse que..."', type: null };
+  return { text: r.answer, type: r.type };
+}
+
+/* ---- send ---- */
+function sendMsg(text) {
+  text = text.trim();
+  if (!text) return;
+  addMsg(text, 'user');
+  inputEl.value = '';
+  inputEl.style.height = 'auto';
+  showTyping();
+  setTimeout(() => {
+    hideTyping();
+    const r = answer(text);
+    addMsg(r.text, 'bot', r.type);
+  }, 480);
+}
+
+/* ---- settings ---- */
+function renderList() {
+  const list = document.getElementById('custom-list');
+  list.innerHTML = '';
+  if (!customEntries.length) { list.innerHTML = '<div class="empty-state">Nenhuma entrada ainda.</div>'; return; }
+  customEntries.forEach((e, i) => {
+    const item = document.createElement('div');
+    item.className = 'custom-item';
+    const safe = s => s.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    item.innerHTML = `<div><div class="custom-q">${safe(e.question)}</div><div class="custom-a">${safe(e.answer.substring(0,60))}…</div></div><button class="del-btn" data-i="${i}">🗑</button>`;
+    list.appendChild(item);
+  });
+}
+
+function toSettings() {
+  inSettings = true;
+  chatView.classList.add('hidden');
+  settingsView.classList.add('active');
+  settingsBtn.textContent = '💬';
+  statusEl.textContent = 'Treinar ClarIA';
+  renderList();
+}
+function toChat() {
+  inSettings = false;
+  chatView.classList.remove('hidden');
+  settingsView.classList.remove('active');
+  settingsBtn.textContent = '⚙️';
+  statusEl.textContent = 'Assistente Comercial CW';
+}
+
+/* ---- welcome ---- */
+function welcome() {
+  if (messagesEl.children.length > 0) return;
+  setTimeout(() => addMsg('Oi! Sou a ClarIA ✨\n\nPosso te ajudar com:\n• Planos, preços e funcionalidades\n• Scripts para contornar objeções\n• O que fazer em cada situação\n\nComo posso te ajudar?', 'bot'), 120);
+}
+
+/* ---- events ---- */
+settingsBtn.addEventListener('click', () => { if (inSettings) toChat(); else toSettings(); });
+
+document.getElementById('send').addEventListener('click', () => sendMsg(inputEl.value));
+
+inputEl.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMsg(e.target.value); }
+});
+inputEl.addEventListener('input', e => {
+  e.target.style.height = 'auto';
+  e.target.style.height = Math.min(e.target.scrollHeight, 80) + 'px';
+});
+
+document.getElementById('suggestions').addEventListener('click', e => {
+  const chip = e.target.closest('.chip');
+  if (chip) sendMsg(chip.dataset.q);
+});
+
+document.getElementById('custom-list').addEventListener('click', e => {
+  const btn = e.target.closest('.del-btn');
+  if (btn) {
+    customEntries.splice(parseInt(btn.dataset.i), 1);
+    persist(); renderList();
+    showToast('Entrada removida.');
+  }
+});
+
+document.getElementById('save-btn').addEventListener('click', () => {
+  const q = document.getElementById('new-q').value.trim();
+  const a = document.getElementById('new-a').value.trim();
+  if (!q || !a) { showToast('Preencha pergunta e resposta.'); return; }
+  const tags = document.getElementById('new-tags').value.split(',').map(s => s.trim()).filter(Boolean);
+  customEntries.push({
+    id: 'c_' + Date.now(),
+    type: document.getElementById('new-type').value,
+    tags, question: q, answer: a, custom: true
+  });
+  persist();
+  document.getElementById('new-q').value = '';
+  document.getElementById('new-a').value = '';
+  document.getElementById('new-tags').value = '';
+  renderList();
+  showToast('Entrada salva!');
+});
+
+/* ---- init ---- */
+load(welcome);
+</script>
+</body>
+</html>

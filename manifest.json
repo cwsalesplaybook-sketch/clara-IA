@@ -1,23 +1,23 @@
 {
   "manifest_version": 3,
   "name": "ClarIA — Assistente Comercial CW",
-  "description": "Assistente de vendas da Cardápio Web. Ativa apenas no Sales Playbook.",
-  "version": "1.1.0",
-  "permissions": ["storage"],
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["knowledge_base.js", "claria.js"],
-      "css": ["claria.css"],
-      "run_at": "document_end"
+  "description": "Assistente de vendas da Cardápio Web",
+  "version": "2.0.0",
+  "permissions": ["storage", "sidePanel"],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "Abrir ClarIA",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
     }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["icons/icon16.png", "icons/icon48.png", "icons/icon128.png"],
-      "matches": ["<all_urls>"]
-    }
-  ],
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
