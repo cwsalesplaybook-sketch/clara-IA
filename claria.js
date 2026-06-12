@@ -20,10 +20,12 @@
   const toggle = document.createElement('button');
   toggle.id = 'claria-toggle';
   toggle.title = 'ClarIA — Assistente Comercial';
-  toggle.innerHTML = `
-    <img src="${chrome.runtime.getURL('icons/icon128.png')}" alt="ClarIA" style="width:52px;height:52px;border-radius:50%;object-fit:cover;display:block;">
-    <div id="claria-badge"></div>
-  `;
+  toggle.innerHTML = `<div id="claria-badge"></div>`;
+  const toggleImg = document.createElement('img');
+  toggleImg.src = chrome.runtime.getURL('icons/icon128.png');
+  toggleImg.alt = 'ClarIA';
+  toggleImg.style.cssText = 'width:52px;height:52px;border-radius:50%;object-fit:cover;display:block;';
+  toggle.insertBefore(toggleImg, toggle.firstChild);
   root.appendChild(toggle);
 
   // --- Toast ---
@@ -36,7 +38,7 @@
   sidebar.id = 'claria-sidebar';
   sidebar.innerHTML = `
     <div id="claria-header">
-      <div id="claria-avatar"><img src="${chrome.runtime.getURL('icons/icon48.png')}" alt="ClarIA" style="width:38px;height:38px;border-radius:50%;object-fit:cover;display:block;"></div>
+      <div id="claria-avatar"></div>
       <div id="claria-header-info">
         <div id="claria-name">ClarIA</div>
         <div id="claria-status">Assistente Comercial CW</div>
@@ -108,6 +110,16 @@
     </div>
   `;
   root.appendChild(sidebar);
+
+  // Seta avatar depois do DOM existir
+  const avatarDiv = document.getElementById('claria-avatar');
+  if (avatarDiv) {
+    const avatarImg = document.createElement('img');
+    avatarImg.src = chrome.runtime.getURL('icons/icon48.png');
+    avatarImg.alt = 'ClarIA';
+    avatarImg.style.cssText = 'width:38px;height:38px;border-radius:50%;object-fit:cover;display:block;';
+    avatarDiv.appendChild(avatarImg);
+  }
 
   // ============================================================
   // ESTADO
