@@ -1059,6 +1059,567 @@ Não force fechamento em deal breaker. Mantenha a relação para o futuro.`
 
 
     // ========================================================
+    // TIPO A — EXTRAS DO FAQ (adicionados em Jun/2026)
+    // ========================================================
+
+    {
+      id: "a_modulos_precos",
+      type: "A",
+      tags: ["módulo adicional", "módulos extras", "preço módulo", "quanto custa módulo", "valor módulo", "add-on"],
+      question: "quais são os preços dos módulos extras?",
+      answer: `💡 MÓDULOS ADICIONAIS — Valores mensais de referência
+
+• Gestão Financeira: R$ 69,99/mês
+• Módulo Fiscal (Cupom Fiscal): R$ 69,99/mês
+• Gestão de Entregas (Roteirização): R$ 54,99/mês
+• Estoque Avançado: R$ 29,99/mês
+• Integração com Marketplaces (iFood/99food): R$ 29,99/mês
+• Totem de Autoatendimento: R$ 99,99/mês por dispositivo
+
+Todos seguem a mesma recorrência do plano principal (mensal, trimestral, semestral ou anual).`
+    },
+
+    {
+      id: "a_garantia_detalhe",
+      type: "A",
+      tags: ["garantia", "período garantia", "quantos dias", "10 dias", "30 dias", "reembolso prazo"],
+      question: "quantos dias são de garantia?",
+      answer: `🛡️ PERÍODO DE GARANTIA
+
+• Plano Mensal e Trimestral: 10 dias
+• Plano Semestral e Anual: 30 dias
+
+O prazo começa a contar imediatamente após a contratação — não quando começa a usar.
+
+Se não estiver satisfeito no período, devolvemos 100% do valor sem burocracia.`
+    },
+
+    {
+      id: "a_pagamento_plataforma",
+      type: "A",
+      tags: ["boleto", "pix plataforma", "cartão mensalidade", "como pagar", "forma pagamento plataforma", "parcelamento"],
+      question: "como posso pagar a mensalidade?",
+      answer: `💳 FORMAS DE PAGAMENTO DA PLATAFORMA
+
+Plano Mensal:
+• Boleto (mês a mês), Pix ou Cartão de crédito
+
+Planos Trimestral, Semestral e Anual:
+• Boleto ou Pix (à vista pelo total)
+• Cartão de crédito (parcelado)
+
+O plano anual é cobrado pelo total, que pode ser parcelado no cartão — não é mensalmente separado.`
+    },
+
+    {
+      id: "a_chatbot_computador",
+      type: "A",
+      tags: ["chatbot computador", "chatbot celular", "chatbot precisa computador", "computador desligado", "chatbot funciona offline"],
+      question: "o chatbot funciona com o computador desligado?",
+      answer: `💬 CHATBOT E COMPUTADOR
+
+O ChatBot é uma extensão do navegador (Chrome) — precisa do computador ligado e conectado para funcionar.
+
+Se o computador desligar: você pode configurar uma mensagem automática de "indisponível" para o cliente receber. Assim que reconectar, o chatbot volta a funcionar normalmente.
+
+Também precisa de computador: o Disparador de Mensagens.
+Funciona só no celular: pedidos via QR Code/link do cardápio.`
+    },
+
+    {
+      id: "a_integracao_ifood_detalhes",
+      type: "A",
+      tags: ["integração ifood detalhe", "ifood módulo", "solicitar motoboy", "pedidos ifood", "dados ifood"],
+      question: "o que dá para fazer com a integração do iFood?",
+      answer: `🔗 INTEGRAÇÃO iFood (Módulo R$ 29,99/mês)
+
+Com o módulo de integração é possível:
+• Receber pedidos do iFood direto no gestor da CW (uma tela só)
+• Solicitar motoboy do iFood
+• Acessar dados de vendas do iFood
+
+Plataformas disponíveis: iFood ✅, 99food ✅, Keeta (em breve), Aiqfome (em breve)`
+    },
+
+    {
+      id: "a_integracao_delivery",
+      type: "A",
+      tags: ["motoboy", "entrega", "integração entrega", "roteirização parceiro", "logística"],
+      question: "com quais serviços de entrega a CW integra?",
+      answer: `🛵 INTEGRAÇÕES DE ENTREGA
+
+Parceiros disponíveis:
+iFood sob demanda, Bee Delivery, Foody Delivery, Pick n Go!, Mottu, Let's! Express, Husky, Machine, JAX Bus, Entregas Expressas, Moovery.
+
+Além disso, o módulo de Gestão de Entregas (R$ 54,99/mês) oferece roteirização automática para a frota própria do restaurante.`
+    },
+
+    {
+      id: "a_integracao_gestao",
+      type: "A",
+      tags: ["integração gestão", "ERP", "PDV integração", "F360", "Saipos integração", "sistema integra"],
+      question: "com quais sistemas de gestão a CW integra?",
+      answer: `🔧 INTEGRAÇÕES DE GESTÃO/PDV
+
+Plataformas de gestão/PDV integradas:
+Saipos, Sischef, F360, Eclética, Glow, IzzyWay
+
+Plataformas de marketing/vendas:
+Repediu, Retorna.app
+
+Plataformas de tráfego:
+Facebook Pixel, Catálogo do Facebook, Facebook Analytics, Google Tag Manager
+
+Para integrações via API aberta: é possível para outros sistemas — a CW disponibiliza a documentação, mas não faz a integração pelo cliente.`
+    },
+
+    {
+      id: "a_disparador_limite",
+      type: "A",
+      tags: ["disparador limite", "quantos contatos", "2000", "base grande", "capacidade disparador"],
+      question: "tem limite no disparador de mensagens?",
+      answer: `📣 LIMITE DO DISPARADOR
+
+Cada disparo envia para até 2.000 contatos.
+
+Se a base for maior: basta criar mais de um disparo. Não há limite de quantos disparos você pode fazer.
+
+Recursos do disparador:
+• Agendar mensagens
+• Incluir nome do destinatário (personalização)
+• Enviar imagem
+• Visualizar métricas de mensagens enviadas e lidas`
+    },
+
+    {
+      id: "a_fidelidade_pontos",
+      type: "A",
+      tags: ["pontos expiram", "pontos fidelidade expiram", "cashback expira", "validade pontos"],
+      question: "os pontos do programa de fidelidade expiram?",
+      answer: `🎁 PONTOS DE FIDELIDADE
+
+Não — os pontos não expiram automaticamente.
+
+Eles só são removidos se a loja fizer isso manualmente no painel.
+
+Regra padrão de pontuação: para cada R$1 gasto, o cliente ganha 1 ponto. A loja define quantos pontos equivalem a qual recompensa (desconto, entrega grátis ou produto).
+
+Não é possível migrar pontos de outro sistema automaticamente — apenas de forma manual.`
+    },
+
+    {
+      id: "a_suporte_horario",
+      type: "A",
+      tags: ["horário suporte", "suporte horário", "quando atende", "suporte domingo", "atendimento horário"],
+      question: "qual o horário de funcionamento do suporte?",
+      answer: `🎧 HORÁRIO DO SUPORTE
+
+• Segunda a Sábado: 9h às 22h
+• Domingo: 14h às 22h
+
+Novos atendimentos são iniciados até as 22h. Após isso, a equipe finaliza atendimentos já em andamento.
+
+Suporte humano — não só bot.`
+    },
+
+    {
+      id: "a_celular",
+      type: "A",
+      tags: ["celular", "mobile", "só pelo celular", "tablet", "app celular", "funciona mobile"],
+      question: "posso usar só pelo celular?",
+      answer: `📱 USO NO CELULAR
+
+Sim, mas atenção a 3 pontos:
+
+1. ChatBot → funciona APENAS no computador (extensão do navegador)
+2. Disparador de Mensagens → funciona APENAS no computador
+3. Impressão automática de pedidos → no celular precisaria clicar manualmente
+
+Para receber pedidos, ver o gestor e configurar o cardápio: funciona normalmente no celular.`
+    },
+
+    {
+      id: "a_multilojas",
+      type: "A",
+      tags: ["multilojas", "várias lojas", "rede", "franquia", "conta master", "lojas diferentes"],
+      question: "posso usar para várias lojas?",
+      answer: `🏪 MULTILOJAS
+
+Sim! É possível ter todas as lojas em uma mesma conta com acesso a uma tela multilojas.
+
+Como funciona:
+• Mesmo login para todas as lojas
+• Conta master com acesso geral
+• Gestores de pedidos separados por loja (cada loja tem o seu)
+• Um CNPJ por loja se forem diferentes, ou mesmo CNPJ para lojas da mesma empresa
+
+Para redes com 10+ lojas: existe plano específico (consultar).`
+    },
+
+    {
+      id: "a_cnpj_cpf",
+      type: "A",
+      tags: ["CNPJ", "CPF", "pessoa física", "pessoa jurídica", "sem CNPJ", "só CPF"],
+      question: "precisa ter CNPJ?",
+      answer: `📋 CNPJ ou CPF
+
+Não precisa de CNPJ. É possível se cadastrar com CPF também.
+
+Se quiser mudar de CPF para CNPJ depois: é possível, basta solicitar ao suporte.`
+    },
+
+    {
+      id: "a_sem_taxa_vendas",
+      type: "A",
+      tags: ["taxa vendas", "comissão", "taxa pedido", "porcentagem venda", "cobra por pedido"],
+      question: "tem taxa sobre as vendas / comissão por pedido?",
+      answer: `✅ SEM TAXA SOBRE VENDAS
+
+Não existe taxa sobre vendas ou comissão por pedido na Cardápio Web.
+
+Você paga apenas a mensalidade do plano. Os pedidos são ilimitados — 10 ou 10.000 pedidos/mês, paga o mesmo.
+
+Exceção: pagamento online via Pix tem taxa de R$ 0,50/transação (da operadora Tuna). Cartão online: taxas da Cielo ou Mercado Pago.`
+    },
+
+    {
+      id: "a_cardapio_prazo_4dias",
+      type: "A",
+      tags: ["4 dias", "quanto tempo cardápio", "prazo implementação", "setup dias"],
+      question: "qual o prazo para o cardápio ficar pronto?",
+      answer: `⚡ PRAZO DO CARDÁPIO
+
+Média de 4 dias úteis para o cardápio ficar no ar — a depender da resposta do cliente com o time de implementação.
+
+O time de implementação da CW cadastra até 300 itens. Acima disso, o cliente cadastra o restante.
+
+É possível importar produtos do iFood para agilizar.`
+    },
+
+    {
+      id: "a_cancelamento",
+      type: "A",
+      tags: ["cancelar", "cancelamento", "fidelidade contrato", "preso no contrato", "renovação automática"],
+      question: "posso cancelar quando quiser?",
+      answer: `❌ CANCELAMENTO
+
+Plano Mensal: pode cancelar a qualquer momento.
+
+Planos maiores (trimestral/semestral/anual): também é possível cancelar, mas sem devolução do valor após o período de garantia (10 dias para mensal/trimestral, 30 dias para semestral/anual).
+
+Renovação automática: NÃO existe. Ao acabar o período, não renova automaticamente.`
+    },
+
+    {
+      id: "a_transferencia_dados",
+      type: "A",
+      tags: ["migrar", "migração dados", "transferir dados", "histórico", "trocar sistema", "portabilidade"],
+      question: "o que posso transferir de outro sistema?",
+      answer: `📦 TRANSFERÊNCIA DE DADOS
+
+✅ É POSSÍVEL transferir:
+• Cardápio (produtos)
+• Nome e número de clientes (em planilha)
+
+❌ NÃO é possível transferir:
+• Histórico de pedidos
+• Pontos do programa de fidelidade
+• Dados/histórico de vendas
+
+O time de implementação da CW faz a transferência de cardápio e contatos quando disponíveis em planilha.`
+    },
+
+    {
+      id: "a_cases_sucesso",
+      type: "A",
+      tags: ["cases", "exemplos", "quem usa", "clientes famosos", "referências", "case de sucesso"],
+      question: "tem cases de sucesso?",
+      answer: `🏆 CASES DE SUCESSO
+
+Exemplos reais de clientes CW:
+• Cacau Show
+• Minikalzone
+• Pizza Crek
+
+Atende desde food trucks e restaurantes locais até redes regionais em todo o Brasil.`
+    },
+
+    {
+      id: "a_totem_detalhe",
+      type: "A",
+      tags: ["totem hardware", "totem dispositivo", "totem pagamento", "totem pix", "totem cupom", "totem impressora"],
+      question: "como funciona o totem na prática?",
+      answer: `🖥️ TOTEM — DETALHES
+
+Hardware: Não precisa de hardware exclusivo. O totem é um site web que funciona em qualquer dispositivo (tablet, tela touchscreen).
+
+Pagamento aceito:
+• Pix ✅
+• Cartão (via Smart TEF integrado com maquininha) ✅
+• Sem pré-requisitos para Pix
+
+Impressora: O totem foi desenvolvido para funcionar sem impressora. É possível integrar uma se o restaurante quiser.
+
+Cupons: Aceita cupons com código. Descontos automáticos não funcionam no totem.
+
+Mídia visual: Possível configurar chamariz (quando ocioso) e fundo personalizado.
+
+Preço: R$ 99,99/mês por dispositivo.
+
+Ideal para: estabelecimentos com alto fluxo onde o autoatendimento faz sentido.`
+    },
+
+    {
+      id: "a_pagamento_online_taxas",
+      type: "A",
+      tags: ["taxa pix", "taxa cartão online", "tuna", "cielo", "mercado pago", "taxa transação"],
+      question: "quais são as taxas do pagamento online?",
+      answer: `💳 TAXAS DO PAGAMENTO ONLINE
+
+Pix: R$ 0,50 por transação (operadora Tuna)
+
+Cartão de crédito: taxas da operadora escolhida pelo restaurante:
+• Cielo (o restaurante precisa ter conta Cielo)
+• Mercado Pago (o restaurante precisa ter conta Mercado Pago)
+
+Nota: essas são taxas das operadoras de pagamento, não da Cardápio Web. A CW não cobra sobre as vendas.`
+    },
+
+    {
+      id: "a_promocao_horario",
+      type: "A",
+      tags: ["promoção horário", "happy hour", "promoção por hora", "desconto hora", "promoção dia"],
+      question: "posso fazer promoção por horário / happy hour?",
+      answer: `🕐 PROMOÇÕES POR HORÁRIO
+
+Por dia: Sim, é possível.
+Por hora exata: Não diretamente, mas há uma alternativa:
+
+1. Criar um cupom com código válido por horário (o cupom tem configuração de horário)
+2. Criar um produto específico com disponibilidade por dia e horário — ele aparece promocional no período e some depois.
+
+Exemplo de happy hour: crie um produto "Cerveja Happy Hour" com preço especial, configure para aparecer apenas das 17h às 19h de sexta.`
+    },
+
+    {
+      id: "a_disc_perfis",
+      type: "A",
+      tags: ["DISC", "perfil cliente", "perfil comportamental", "como lidar tipo cliente", "dominante", "influente"],
+      question: "como identificar e lidar com diferentes perfis de lead?",
+      answer: `🧠 PERFIS DISC — Como lidar
+
+D — Dominância (direto, quer resolver rápido):
+Frases: "Quanto custa?", "Seja breve"
+Como lidar: vá curto, focado em resultado, sem rodeios.
+
+I — Influência (comunicativo, empolgado):
+Como lidar: seja entusiasmado, aberto, relacional. Ele vai querer falar muito — deixe.
+
+S — Estabilidade (calmo, precisa de segurança):
+Frases: "Preciso pensar com calma"
+Como lidar: transmita confiança, acolhimento, vá passo a passo.
+
+C — Conformidade (analítico, detalhista):
+Frases: "Me manda os dados"
+Como lidar: traga informação precisa, detalhes e provas concretas.`
+    },
+
+    {
+      id: "a_desqualificar",
+      type: "A",
+      tags: ["desqualificar", "quando desqualificar", "lead ruim", "lead não serve", "fora do perfil"],
+      question: "quando posso desqualificar um lead?",
+      answer: `🚫 QUANDO DESQUALIFICAR
+
+Desqualifique se:
+1. Faturamento muito distante de R$ 179,90/mês (mínimo para fazer sentido)
+2. Quer funcionalidade que a CW não atende
+3. Quer serviço fora do escopo (ex: fazer tráfego para ele)
+4. É de segmento muito distante do food service/pedidos digitais
+
+Script para orçamento baixo:
+"LEAD, realmente temos esses valores que te apresentei. Hoje, devido ao volume de funcionalidades, não conseguimos reduzir. Mas vou deixar seu contato salvo — quando reservar o valor para investir, pode me chamar."`
+    },
+
+    {
+      id: "a_nicho_nao_convencional",
+      type: "A",
+      tags: ["floricultura", "petshop", "doceira", "confeitaria", "nicho diferente", "não restaurante"],
+      question: "atende negócio que não é restaurante?",
+      answer: `🌸 NICHOS NÃO CONVENCIONAIS
+
+Sim! A CW atende qualquer negócio que trabalhe com pedidos digitais.
+
+Exemplos que funcionam bem:
+• Floriculturas
+• Pet shops
+• Doceiras / confeitarias
+• Açaiterias
+
+Antes de avançar: verifique se o lead tem volume de pedidos compatível com o plano mínimo (faturamento compatível com R$ 179,90/mês).`
+    },
+
+    {
+      id: "a_fotos_produto",
+      type: "A",
+      tags: ["fotos", "quantidade fotos", "imagens produto", "foto prato"],
+      question: "quantas fotos posso ter por produto?",
+      answer: `📸 FOTOS POR PRODUTO
+
+Até 5 fotos por produto.
+
+Foto não é obrigatória — pode cadastrar só o nome e preço.
+
+Vídeos dos pratos: ainda não é possível.`
+    },
+
+    {
+      id: "a_funciona_offline",
+      type: "A",
+      tags: ["offline", "sem internet", "internet caiu", "funciona sem wifi", "queda internet"],
+      question: "funciona sem internet?",
+      answer: `📶 INTERNET
+
+O sistema funciona na nuvem — precisa de internet.
+
+Porém: por ser leve, funciona bem com 4G.
+
+Se a internet cair: os pedidos continuam chegando (ficam na fila). Quando reconectar, você os vê normalmente.
+
+ChatBot específico: não funciona com computador desligado, mas pode configurar mensagem automática de "indisponível".`
+    },
+
+    {
+      id: "a_precos_diferentes",
+      type: "A",
+      tags: ["preço delivery diferente", "preço mesa diferente", "balcão preço diferente", "preço por canal"],
+      question: "posso ter preços diferentes para salão, delivery e balcão?",
+      answer: `💰 PREÇOS POR CANAL
+
+Sim! É possível configurar preços diferentes para:
+• Salão (mesa)
+• Delivery
+• Balcão
+
+O mesmo produto pode ter valores distintos em cada modalidade.`
+    },
+
+    {
+      id: "a_congelar_conta",
+      type: "A",
+      tags: ["congelar conta", "pausar", "parar temporário", "abrir depois"],
+      question: "posso congelar a conta e usar depois?",
+      answer: `⏸️ CONGELAMENTO DE CONTA
+
+É possível congelar por no máximo 1 mês a partir da contratação.
+
+Após esse período, a conta é ativada normalmente.
+
+Se quiser montar o cardápio agora e usar depois: o closer precisa levar para a liderança, pois seria um caso especial.`
+    },
+
+
+    // ========================================================
+    // TIPO B — SCRIPTS COMPLETOS DO FAQ
+    // ========================================================
+
+    {
+      id: "b_faq_so_valores_spin",
+      type: "B",
+      subtype: "valor",
+      tags: ["só quer preço", "antes do SPIN", "pular qualificação", "direto valores", "sem perguntas"],
+      question: "lead insiste em ver os planos completos antes do SPIN",
+      situation: "FAQ 148 — Lead insiste em ver planos antes da qualificação",
+      answer: `Script:
+
+SDR: "Entendo, [NOME]. Para te falar os valores, preciso primeiro entender qual plano faz sentido. Para não tomar seu tempo, vou te fazer apenas 4 perguntas, entendendo sua necessidade, já falo sobre valores. Tudo bem?"
+
+Se ele aceitar: faça o SPIN e qualifique normalmente.
+Se ele insistir: passe a média de valores (R$169,99 a R$269,99/mês) e retorne à qualificação explicando que são 4 perguntas apenas.`
+    },
+
+    {
+      id: "b_faq_contratar_sem_reuniao",
+      type: "B",
+      subtype: "processo",
+      tags: ["fechar sem reunião", "contratar direto", "sem vídeo chamada", "link pagamento direto"],
+      question: "lead quer contratar sem fazer a reunião com o closer",
+      situation: "FAQ 157 — Lead quer contratar sem passar pelo processo",
+      answer: `Script:
+
+SDR: "[LEAD], eu super entendo que você está com o tempo corrido. O que acontece é que apenas o meu especialista consegue liberar a conta para você, e como ele está entre reuniões, pelo WhatsApp ele não vai conseguir te dar 100% de atenção.
+
+Podemos fazer algo mais reduzido — uma ligação de 10 minutos, apenas para vocês negociarem, você pagar e ele liberar as credenciais e explicar os próximos passos. Posso agendar?"
+
+Se insistir: verifique com a liderança se pode mandar direto pro WhatsApp do closer.
+
+Exceções que podem ir sem reunião: lead que já tem loja com a CW abrindo nova unidade, ou lead indicado por parceiro forte.`
+    },
+
+    {
+      id: "b_faq_burocrático",
+      type: "B",
+      subtype: "processo",
+      tags: ["burocrático", "processo burocrático", "muitas perguntas", "muito processo", "direto ao assunto"],
+      question: "lead acha o processo burocrático / muitas perguntas",
+      situation: "FAQ 159 — Lead acha burocrático o processo de ligação",
+      answer: `Script:
+
+LEAD: "Mas precisa de outra ligação? Tô procurando um processo mais rápido, já tô achando o de vocês muito burocrático!"
+
+SDR: "Entendo, você tem um ponto válido! Mas deixa eu te falar: a gente faz isso justamente para ter um processo mais rápido e eficiente como você falou. Essas perguntas são justamente para saber se de fato faz sentido para você ter um cardápio digital ou não. Se não fizesse, você já ia saber agora.
+
+Desse jeito a gente passa para o nosso consultor apenas as pessoas que realmente precisam do que a gente oferece, pois não faz sentido para a gente fechar uma parceria onde a pessoa não vai ter os resultados que ela quer."`
+    },
+
+    {
+      id: "b_faq_gestor_participar",
+      type: "B",
+      subtype: "processo",
+      tags: ["gestor tráfego reunião", "gestor quer participar", "gestor sem proprietário", "gestor sozinho"],
+      question: "gestor de tráfego quer participar da reunião sem o proprietário",
+      situation: "FAQ 149 — Gestor de tráfego quer ir sozinho na reunião",
+      answer: `Script:
+
+SDR: "[GESTOR], eu entendo que você vai ser crucial na decisão, por isso convido os dois a participarem. Ele quem vai acabar realizando a contratação — estando vocês dois na vídeo chamada, a gente consegue finalizar mais rápido e você mesmo consegue agir mais rápido para levar resultado. Pode ser?"`
+    },
+
+    {
+      id: "b_faq_orçamento_baixo",
+      type: "B",
+      subtype: "valor",
+      tags: ["orçamento baixo", "pouco dinheiro para investir", "não tenho esse valor", "sem budget"],
+      question: "lead tem orçamento muito abaixo do plano mínimo",
+      situation: "FAQ 176 — Lead com orçamento muito baixo",
+      answer: `Se o orçamento for próximo dos nossos valores:
+→ Convença a ir para a reunião e informe ao closer.
+
+Se o orçamento for muito distante (muito abaixo de R$169,99):
+
+Script: "[LEAD], realmente temos esses valores que te apresentei. Hoje, devido ao volume de funcionalidades, não conseguimos reduzir o valor. Mas vou deixar seu contato salvo — quando reservar o valor para investir, pode me chamar."
+
+Não force. Desqualifique e mantenha a relação.`
+    },
+
+    {
+      id: "b_faq_quer_contratar_mes_que_vem",
+      type: "B",
+      subtype: "dispensa",
+      tags: ["próximo mês", "contratar depois", "mês que vem", "quando abrir", "esperar abrir loja"],
+      question: "lead quer contratar só no próximo mês com operação rodando",
+      situation: "FAQ 78 — Lead quer contratar próximo mês",
+      answer: `Pode haver objeção escondida. Descubra o motivo real.
+
+Script:
+
+SDR: "Então, [LEAD], só para eu entender melhor, qual o motivo de não contratar esse mês?"
+
+[Aguarda]
+
+Trabalhe em cima do que ele trouxer. Se for valor → A2. Se for outra objeção → use o script correspondente.`
+    },
+
+    // ========================================================
     // TIPO C — DIRECIONAMENTO / O QUE FAZER
     // ========================================================
 
